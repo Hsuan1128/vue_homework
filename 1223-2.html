@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tea Select | 宗玄</title>
+    <link rel="stylesheet" href="./navbar.css" />
+    <style>
+      main.main-process {
+        background-image: url("./paper.png");
+        background-color: #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 50px 0;
+      }
+      .main-process-info {
+        flex-wrap: wrap;
+        display: flex;
+        width: 60%;
+        height: 250px;
+        margin: 20px 0px;
+      }
+      .main-process-info img {
+        border-radius: 20px;
+        flex: 1;
+        width: 100%;
+        height: 250px;
+        vertical-align: middle;
+      }
+      .main-process-info .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+      .main-process-info .text h2 {
+        letter-spacing: 5px;
+        font-weight: normal;
+        font-size: 25px;
+        margin-bottom: 30px;
+        height: 40px;
+        border-bottom: 3px solid #a8cc05;
+      }
+
+      .main-process-info .text p {
+        color: #555;
+        width: 90%;
+        font-size: 16px;
+        letter-spacing: 3px;
+        line-height: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="./index.html">煌恩頁面</a>
+    <div id="app">
+      <main v-for="item in myList" class="main-process">
+        <div class="main-process-info" id="step1">
+          <img :src="item.image" :alt="item.alt" />
+          <div class="text">
+            <h2>{{item.title}}</h2>
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+      </main>
+      <!-- listItem是自定義名稱 -->
+      <p v-for="(listItem,listIndex) in list">{{listIndex + 1}}.{{listItem}}</p>
+    </div>
+
+    <script>
+      //v-for
+      //for of 陣列使用
+      let array = [A, B, C, D, E];
+      for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        console.log(element);
+      }
+
+      for (const iterator of array) {
+        console.log(iterator);
+      }
+    </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // 新增一個應用application→建立Vue實體(instance)，並掛載(mount)在網頁結點上
+      //創建一個app應用，並渲染在div名為#app
+      Vue.createApp({
+        data() {
+          return {
+            myList: [
+              {
+                id: "step1",
+                image: "./pic/茶園.webp",
+                alt: "手工採摘",
+                title: "手工採摘",
+                description:
+                  "茶葉的採收以嫩葉與嫩芽為主。依茶葉不同而有一心一葉、一心二葉、一心三葉的不同選擇。茶葉葉面的完整與否攸關茶葉製造的品質，採茶過程中不能損傷茶葉，否則將降低茶葉品質的茶，希望能用新視角呈現傳統美好風味。",
+              },
+              {
+                id: "step2",
+                image: "./pic/烘培.jpg",
+                alt: "專業烘培",
+                title: "專業烘培",
+                description:
+                  "精製完成的茶葉，再經過熱度慢慢烘培的培火步驟，讓茶葉散發出清香的氣味。而茶葉依種類不同而有不同的培火程度分為輕火、中火和重火三種。生茶的香氣十足，茶湯顏色較淺，熟茶的香氣雖不如生茶，但他的口感比起生茶則是別有一番風味。",
+              },
+              {
+                id: "step3",
+                image: "./pic/貨車.jpg",
+                alt: "快速配送",
+                title: "快速配送",
+                description:
+                  "茶葉經過各種工序以後，製茶工作到此可算大功告成。一般茶行內放著一桶桶的茶葉，將茶葉運送至店家，而選定茶葉後，最終的步驟便是包裝。茶葉的包裝多直接採用真空包裝的填充方式，如果不是於近期內沖泡，真空包裝可存放較久。",
+              },
+              {
+                id: "step4",
+                image: "./pic/產品.jpeg",
+                alt: "新鮮現泡",
+                title: "新鮮現泡",
+                description:
+                  "茶葉因品種、發酵與烘焙程度的不同，可以產生出不同的茶底，這些都要靠茶師與茶廠們傳承下來的經驗，去尋找出最適合的茶韻。當然，依據時代的不同，喜好的風味也不斷在變化，在老茶廠的協助下，我們調配出「五」款，最適合新時代的茶。",
+              },
+            ],
+          };
+        },
+      }).mount(`#app`);
+    </script>
+  </body>
+</html>
